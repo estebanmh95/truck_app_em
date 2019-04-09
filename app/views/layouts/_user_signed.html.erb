@@ -1,0 +1,15 @@
+<% if user_signed_in?%>
+  <li class=" dropdown singleDrop">
+    <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+      <img src="<%=@avatar%>" class ="img-circle">
+      <i class="fa fa-angle-down" aria-hidden="true"></i>
+    </a>
+    <ul class="dropdown-menu">
+      <li><%= link_to "Edit User", edit_user_registration_path %></li>
+      <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+    </ul>
+  </li>
+<%else%>
+  <li><%= link_to "Login", new_user_session_path %></li>
+  <li><%= link_to "Register", new_user_registration_path%></li>
+<% end %>
