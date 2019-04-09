@@ -29,10 +29,16 @@
             <%= render 'layouts/navbar' %>
           </div>
         </header>
-        <p class="notice"><%= notice %></p>
-        <p class="alert"><%= alert %></p>
+        <%= flash_messages%>
 
         <%= yield %>
+
+        <!-- alerts -->
+        <script>
+          $(".alert").fadeIn(500).css("opacity", "0.85").delay(6000).slideUp(1000);
+          $(".alert").on("click", '.alert', function(){ $(this).remove()});
+        </script>
+        <!-- alerts -->
 
     </div>
   </body>
