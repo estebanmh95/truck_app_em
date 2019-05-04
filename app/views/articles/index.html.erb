@@ -1,32 +1,102 @@
-<p id="notice"><%= notice %></p>
+<!-- PAGE TITLE SECTION -->
+<section class="clearfix pageTitleSection bg-image" style="background-image: url('/assets/background/bg-page-title.jpg');">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="pageTitle">
+          <h2>Blog Page</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-<h1>Articles</h1>
+<!-- BLOG SECTION -->
+<section class="clearfix">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-8 col-xs-12">
+        <div class="blogInnerWrapper">
+          <div class="thumbnail blogInner ">
+            <% if user_signed_in?%>
+              <% if current_user.admin? %>
+                <div class="form-group mgnBtm0">
+                  <%= link_to 'New Article', new_article_path, type: "button", class: "btn btn-primary"%>
+                </div>
+              <%end%>
+            <%end%>
+            <% @articles.each do |article| %>
+              <div class="caption">
+                <h3><%= link_to article.title, article %></h3>
+                <% if article.content.length >= 300%>
+                  <p><%= truncate(article.content, length: 300) %></p>
+                  <%= link_to 'Read More...', article%>
+                <%else%>
+                  <p><%= truncate(article.content, length: 300) %></p>
+                <%end%>
+                <h4><%= time_ago_in_words(article.created_at) %> Ago   by <a href="#"><%=article.user.username%></a></h4>
+                <% if user_signed_in?%>
+                  <% if current_user.admin? %>
+                    <%= link_to 'Edit Article', edit_article_path(article)%>
+                  <%end%>
+                <%end%>
+              </div>
+            <% end %>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Content</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @articles.each do |article| %>
-      <tr>
-        <td><%= article.title %></td>
-        <td><%= article.content %></td>
-        <td><%= link_to 'Show', article %></td>
-        <% if user_signed_in? && current_user.admin?%>
-          <td><%= link_to 'Edit', edit_article_path(article) %></td>
-          <td><%= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <%end%>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-<% if user_signed_in? && current_user.admin?%>
-  <%= link_to 'New Article', new_article_path %>
-<%end%>
+          </div>
+        </div>
+        <div class="paginationCommon blogPagination">
+          <nav aria-label="Page navigation">
+            <ul class="pagination">
+              <li>
+                <a href="#" aria-label="Previous">
+                  <span aria-hidden="true"><i class="fa fa-angle-left" aria-hidden="true"></i></span>
+                </a>
+              </li>
+              <li class="active"><a href="#">1</a></li>
+              <li><a href="#">2</a></li>
+              <li><a href="#">3</a></li>
+              <li><a href="#">4</a></li>
+              <li><a href="#">5</a></li>
+              <li>
+                <a href="#" aria-label="Next">
+                  <span aria-hidden="true"><i class="fa fa-angle-right" aria-hidden="true"></i></span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+      <div class="col-sm-4 col-xs-12">
+        <div class="sidebarInner">
+          <div class="panel panel-default">
+            <div class="panel-heading">Categories</div>
+            <div class="panel-body">
+              <ul class="list-unstyle categoryList">
+                <li><a href="#">Real Estate <span class="pull-right">(3)</span></a></li>
+                <li><a href="#">Automotive <span class="pull-right">(7)</span></a></li>
+                <li><a href="#">Healthcare <span class="pull-right">(12)</span></a></li>
+                <li><a href="#">Restaurent <span class="pull-right">(5)</span></a></li>
+                <li><a href="#">Business <span class="pull-right">(9)</span></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="sidebarInner">
+          <div class="panel panel-default">
+            <div class="panel-heading">Recent Posts</div>
+            <div class="panel-body">
+              <ul class="list-unstyle categoryList">
+                <li><a href="#">Curabitur scelerisque lacus sit amet.</a></li>
+                <li><a href="#">Morbi pretium ipsum ac massa sollicitu.</a></li>
+                <li><a href="#">Etiam eget augue et lorem sagittis.</a></li>
+                <li><a href="#">Sed mollis tincidunt massa vel egestas.</a></li>
+                <li><a href="#">Aliquam semper dolor nec metus alique.</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
