@@ -1,0 +1,7 @@
+<% @categories.each do |category| %>
+  <li>
+    <%=  link_to articles_path(category: category.name) do %>
+      <%= category.name%> <span class="pull-right"><%=category.articles.count%></span>
+    <% end %>
+  </li>
+<% end %>
