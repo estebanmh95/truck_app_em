@@ -1,5 +1,5 @@
 class UserNotifierMailer < ApplicationMailer
-  default from: 'estebanmh95@gmail.com'
+  default from: 'contact@truckapp.com'
 
   def welcome_user(user)
     @user = user
