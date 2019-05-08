@@ -3,7 +3,7 @@ class UserNotifierMailer < ApplicationMailer
 
   def welcome_user(user)
     @user = user
-    @url = 'http://localhost:3000'
+    @url = 'https://trucke-app-heroku-16.herokuapp.com'
     mail(to: @user.email, subject: "Welcome User")
   end
 end
