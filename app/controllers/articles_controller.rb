@@ -41,10 +41,17 @@ class ArticlesController < ApplicationController
     @article = Article.new(article_params)
     @categories = Category.all
     @article.user = current_user
+    @users = User.where(role: "user")
+
+
     respond_to do |format|
       if @article.save
         format.html { redirect_to @article, notice: 'Article was successfully created.' }
         format.json { render :show, status: :created, location: @article }
+
+        @users.each do |user|
+            UserNotifierMailer.update_blog(user, @article.title, @article.id).deliver_now
+        end
       else
         format.html { render :new }
         format.json { render json: @article.errors, status: :unprocessable_entity }
