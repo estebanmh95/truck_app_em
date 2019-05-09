@@ -11,8 +11,8 @@ class UserNotifierMailer < ApplicationMailer
     @user = user
     @title = title
     @id = id
-    @url = 'https://trucke-app-heroku-16.herokuapp.com/articles/#{@id}'
-    mail(to: @user.email, subject: "New Article Added to the Blog")
+    @url = "https://trucke-app-heroku-16.herokuapp.com/articles/#{@id}"
+    mail(to: @user.email, subject: "#{@title} -- New Article Added to the Blog")
   end
 
 end
