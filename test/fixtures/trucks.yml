@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  truck_type: one
+  truck_merchandise: one
+  truck_load: one
+  coverage: one
+  city: one
+  gps: false
+  available_now: false
+  image: MyText
+  latitude: 1.5
+  longitude: 1.5
+  price_per_km: 1.5
+
+two:
+  user: two
+  truck_type: two
+  truck_merchandise: two
+  truck_load: two
+  coverage: two
+  city: two
+  gps: false
+  available_now: false
+  image: MyText
+  latitude: 1.5
+  longitude: 1.5
+  price_per_km: 1.5

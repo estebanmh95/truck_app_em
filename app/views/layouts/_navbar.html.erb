@@ -47,6 +47,6 @@
           <%= render 'layouts/user_signed'%>
         </ul>
     </div>
-    <a class="btn btn-default navbar-btn" href="add-listings.html"> + <span>Add Listing</span></a>
+      <%= link_to "+ Add Truck", new_truck_path, type: "button", class: "btn btn-default navbar-btn" %>
   </div>
 </nav>

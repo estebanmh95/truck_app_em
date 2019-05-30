@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
+
   resources :articles
+  resources :trucks
   devise_for :users
   resources :users, only: [:show]
 

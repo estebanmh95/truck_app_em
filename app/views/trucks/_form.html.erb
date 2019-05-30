@@ -1,0 +1,41 @@
+<%= form_with(model: truck, local: true, class: "listing__form") do |form| %>
+
+<% if truck.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(truck.errors.count, "error") %> prohibited this truck from being saved:</h2>
+
+    <ul>
+    <% truck.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<div class="dashboardBoxBg mb30">
+  <div class="profileIntro paraMargin">
+    <h3>New Truck</h3>
+    <p>Here you can add your truck.</p>
+    <div class="row">
+      <div class="form-group col-sm-6 col-xs-12">
+        <label for="listingTitle">Truck</label>
+        <%= form.text_field :title, class: "form-control", id: "listingTitle", placeholder: "Listing Title" %>
+      </div>
+      <div class="form-group col-sm-6 col-xs-12">
+        <label for="listingCategory">Category</label>
+        <div class="contactSelect">
+            <%= form.collection_select(:category_id, Category.all,
+            :id, :name, {prompt: "Choose a Category"}, {class: "select-drop"})%>
+        </div>
+      </div>
+      <div class="form-group col-xs-12">
+        <label for="discribeTheListing">Discribe the listing</label>
+        <%= form.text_area :content, class: "form-control", placeholder: "Discribe the listing" %>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="form-footer text-center">
+  <%= form.button "Submit", value:"Submit Post", class:"btn-submit", data: { disable_with: "<i class='fa fa-spinner fa-spin'></i> Sending..." }%>
+</div>
+<% end %>

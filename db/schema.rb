@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_04_020050) do
+ActiveRecord::Schema.define(version: 2019_05_09_233932) do
 
   create_table "articles", force: :cascade do |t|
     t.string "title"
@@ -27,6 +27,59 @@ ActiveRecord::Schema.define(version: 2019_05_04_020050) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "cities", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "coverages", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "truck_loads", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "truck_merchandises", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "truck_types", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "trucks", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "truck_type_id"
+    t.integer "truck_merchandise_id"
+    t.integer "truck_load_id"
+    t.integer "coverage_id"
+    t.integer "city_id"
+    t.boolean "gps"
+    t.boolean "available_now"
+    t.text "image"
+    t.float "latitude"
+    t.float "longitude"
+    t.float "price_per_km"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["city_id"], name: "index_trucks_on_city_id"
+    t.index ["coverage_id"], name: "index_trucks_on_coverage_id"
+    t.index ["truck_load_id"], name: "index_trucks_on_truck_load_id"
+    t.index ["truck_merchandise_id"], name: "index_trucks_on_truck_merchandise_id"
+    t.index ["truck_type_id"], name: "index_trucks_on_truck_type_id"
+    t.index ["user_id"], name: "index_trucks_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

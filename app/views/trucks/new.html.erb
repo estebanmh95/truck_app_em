@@ -5,11 +5,11 @@
   <div class="container">
     <div class="row">
       <div class="col-xs-12">
-        <h2>Submit Listings</h2>
+        <h2>Submit Truck</h2>
         <ol class="breadcrumb">
           <li><a href="index.html">Home</a></li>
           <li><a href="dashboard.html">Dashboard</a></li>
-          <li class="active">Submit Listings</li>
+          <li class="active">Submit Truck</li>
         </ol>
       </div>
     </div>
@@ -21,8 +21,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-xs-12">
-        <p><%=@categories.sum(:id)%></p>
-        <%= render 'form', article: @article %>
+        <%= render 'form', truck: @truck%>
 			</div>
 		</div>
 	</div>
