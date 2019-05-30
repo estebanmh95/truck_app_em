@@ -44,7 +44,7 @@
 
       <div class="form-group col-sm-6 col-xs-12">
         <div class="contactSelect">
-          <%= form.collection_select(:city_id, Coverage.all, :id, :name, {prompt: "Choose city"}, {class: "select-drop"})%>
+          <%= form.collection_select(:city_id, City.all, :id, :name, {prompt: "Choose city"}, {class: "select-drop"})%>
         </div>
       </div>
 
