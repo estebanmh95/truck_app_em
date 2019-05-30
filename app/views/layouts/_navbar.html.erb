@@ -10,7 +10,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="index.html">
+      <a class="navbar-brand" href="https://trucke-app-heroku-16.herokuapp.com">
         <img src="<%= image_path('logo-blue2.png') %>" alt="" width="140" heigth="44">
       </a>
     </div>
@@ -27,8 +27,9 @@
               <li><a class="" href="index-4.html">Home City</a></li>
             </ul>
           </li>
-          <li class=""><a href="blog.html">blog </a></li>
-          <li class=" dropdown singleDrop">
+          <li><%= link_to "Blog", articles_path%></li>
+
+          <!--<li class=" dropdown singleDrop">
             <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">admin <i class="fa fa-angle-down" aria-hidden="true"></i></a>
             <ul class="dropdown-menu">
               <li><a href="dashboard.html">Dashboard</a></li>
@@ -43,7 +44,7 @@
               <li><a href="login.html">Login</a></li>
               <li><a href="index.html">Log Out</a></li>
             </ul>
-          </li>
+          </li>-->
           <%= render 'layouts/user_signed'%>
         </ul>
     </div>
