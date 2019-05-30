@@ -6,14 +6,14 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Category.delete_all
+
 TruckType.delete_all
 TruckMerchandise.delete_all
 TruckLoad.delete_all
 City.delete_all
 Coverage.delete_all
 
-Category.create([{name: 'Trucks'},{name: 'Shippers'},{name:'Truckers'},{name:'Other'}])
+
 TruckType.create([{name: 'rigidos'},{name: 'articulado'},{name: 'trailer'},{name: 'tren de carretera'}])
 TruckMerchandise.create([
   {name: 'camion de lona'},
